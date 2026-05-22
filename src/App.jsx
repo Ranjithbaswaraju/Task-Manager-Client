@@ -5,7 +5,7 @@ import EmployeeDashboard from "./pages/EmployeeComponent/EmployeeDashBoard";
 import "./App.css";
 import MyTasks from "./pages/EmployeeComponent/MyTasks";
 import EmployeeLayout from "./pages/EmployeeComponent/EmployeeLayOut";
-import TLLayout from "./pages/tlComponent/TLlayout";
+import TLLayout from "./pages/tlComponent/TLLayout";
 import CreateEmployee from "./pages/tlComponent/createEmployee";
 import TLDashboard from "./pages/tlComponent/TLdashboard";
 import MyTeam from "./pages/tlComponent/MyTeam";
