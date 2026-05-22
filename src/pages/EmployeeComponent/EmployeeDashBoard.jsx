@@ -2,7 +2,7 @@ import { ClipboardList, Clock, CheckCircle, TrendingUp } from "lucide-react";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import DashboardCard from "../../components/DashboardCard.jsx";
+import DashboardCard from "./DashboardCard.jsx";
 // import DashboardCard from "../../components/DashboardCard.jsx";
 
 const EmployeeDashboard = () => {
