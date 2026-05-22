@@ -1,83 +1,28 @@
 @import "tailwindcss";
 
-
-@media screen and (max-width: 425px) {
-
-  /* Main Page */
-  .min-h-screen {
-    padding: 20px 14px !important;
+/* Scoped auth-page styles only — avoids breaking dashboard layouts on mobile */
+@media screen and (max-width: 640px) {
+  .auth-page {
     overflow-x: hidden;
   }
 
-  /* Login Container */
-  .max-w-md {
-    max-width: 100% !important;
-    width: 100% !important;
+  .auth-page .auth-logo {
+    font-size: 2.125rem;
+    line-height: 2.625rem;
   }
 
-  /* Logo Section */
-  h1 {
-    font-size: 34px !important;
-    line-height: 42px !important;
+  .auth-page .auth-subtitle {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
   }
 
-  /* Subtitle */
-  .text-gray-400 {
-    font-size: 13px !important;
-    line-height: 20px !important;
+  .auth-page .auth-card {
+    padding: 1.375rem 1.125rem;
+    border-radius: 1.375rem;
   }
 
-  /* Card */
-  .rounded-3xl {
-    padding: 22px 18px !important;
-    border-radius: 22px !important;
+  .auth-page .auth-heading {
+    font-size: 1.625rem;
+    line-height: 2.125rem;
   }
-
-  /* Welcome Text */
-  h2 {
-    font-size: 26px !important;
-    line-height: 34px !important;
-  }
-
-  /* Labels */
-  label {
-    font-size: 13px !important;
-  }
-
-  /* Inputs */
-  input {
-    padding: 13px 14px !important;
-    font-size: 14px !important;
-    border-radius: 12px !important;
-  }
-
-  /* Forgot Button */
-  button[type="button"] {
-    font-size: 12px !important;
-  }
-
-  /* Submit Button */
-  button[type="submit"] {
-    padding: 13px !important;
-    font-size: 15px !important;
-    border-radius: 12px !important;
-  }
-
-  /* Errors */
-  .text-red-400 {
-    font-size: 12px !important;
-  }
-
-  /* Divider */
-  .py-6 {
-    padding-top: 18px !important;
-    padding-bottom: 18px !important;
-  }
-
-  /* Register Text */
-  .text-center p {
-    font-size: 13px !important;
-    line-height: 22px !important;
-  }
-
 }

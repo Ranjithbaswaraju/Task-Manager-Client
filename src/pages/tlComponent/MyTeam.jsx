@@ -6,6 +6,8 @@ import {
   Briefcase,
   Search,
 } from "lucide-react";
+import { API_BASE } from "../../config/api";
+
 const MyTeam = () => {
 const token = localStorage.getItem("token");
   const [employees, setEmployees] = useState([]);
@@ -13,7 +15,7 @@ const token = localStorage.getItem("token");
   const fetchMyTeam = async () => {
     try {
       const response = await axios.get(
-        "https://task-manager-server-1-lei1.onrender.com/api/my-employees",
+        `${API_BASE}/api/my-employees`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -43,7 +45,7 @@ const token = localStorage.getItem("token");
 
       const response = await axios.get(
 
-        `https://task-manager-server-1-lei1.onrender.com/api/employee/search/${value}`,
+        `${API_BASE}/api/employee/search/${value}`,
 
         {
 
@@ -78,25 +80,22 @@ const token = localStorage.getItem("token");
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0F172A] p-6">
+    <div className="space-y-6">
 
-      <div className="flex items-center gap-3 mb-8">
-
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] flex items-center justify-center">
-
+      <div className="flex items-center gap-3 flex-wrap text-left">
+        <div className="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] flex items-center justify-center">
           <Users className="text-white" size={24} />
-
         </div>
-        <div>
-          <h1 className="text-3xl font-bold text-white">
+        <div className="text-left">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white text-left">
             My Team
           </h1>
-          <p className="text-gray-400 mt-1">
+          <p className="text-gray-400 mt-1 text-left">
             Employees created by you
           </p>
         </div>
       </div>
-      <div className="mb-8 relative w-full md:w-[350px]">
+      <div className="relative w-full max-w-md">
         <Search
           className="absolute left-4 top-3.5 text-gray-400"
           size={18}
@@ -117,7 +116,7 @@ const token = localStorage.getItem("token");
 
         ? (
 
-          <div className="flex flex-row flex-wrap gap-6">
+          <div className="flex flex-row flex-wrap justify-center gap-6">
 
             {
 
@@ -127,7 +126,7 @@ const token = localStorage.getItem("token");
 
                   key={employee._id}
 
-                  className="w-[320px] min-h-[260px] bg-[#1E293B] border border-white/10 rounded-2xl p-6 hover:border-[#8B5CF6] transition-all duration-300"
+                  className="w-[300px] shrink-0 grow-0 min-h-[260px] bg-[#1E293B] border border-white/10 rounded-2xl p-5 sm:p-6 hover:border-[#8B5CF6] transition-all duration-300"
 
                 >
 
@@ -178,7 +177,7 @@ const token = localStorage.getItem("token");
 
 
 
-                    <p className="text-sm">
+                    <p className="text-sm break-all">
 
                       {employee.email}
 

@@ -6,6 +6,7 @@ import axios from "axios";
 
 import { UserPlus } from "lucide-react";
 import { toast } from "react-toastify";
+import { API_BASE } from "../../config/api";
 
 const CreateEmployee = () => {
  
@@ -88,7 +89,7 @@ const CreateEmployee = () => {
       setIsLoading(true);
 
       const response = await axios.post(
-        "https://task-manager-server-1-lei1.onrender.com/api/employee",
+        `${API_BASE}/api/employee`,
 
         {
           name: formData.name,
@@ -136,17 +137,17 @@ const CreateEmployee = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className="bg-[#1E293B] rounded-2xl p-6 lg:p-8 border border-white/10">
+    <div className="w-full max-w-2xl mx-auto">
+      <div className="bg-[#1E293B] rounded-2xl p-4 sm:p-6 lg:p-8 border border-white/10">
         
 
-        <div className="flex items-center gap-3 mb-8">
+        <div className="flex items-center gap-3 flex-wrap mb-6 sm:mb-8">
           <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] flex items-center justify-center">
             <UserPlus className="text-white" size={24} />
           </div>
 
           <div>
-            <h1 className="text-2xl font-bold text-white">Create Employee</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-white">Create Employee</h1>
 
             <p className="text-gray-400 text-sm mt-1">Add a new team member</p>
           </div>
@@ -242,7 +243,7 @@ const CreateEmployee = () => {
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
             {/* Submit */}
             <button
               type="submit"

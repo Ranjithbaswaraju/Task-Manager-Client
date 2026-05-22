@@ -3,6 +3,7 @@ import { ClipboardList, Clock, CheckCircle, TrendingUp } from "lucide-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import DashboardCard from "./DashboardCard.jsx";
+import { API_BASE } from "../../config/api";
 // import DashboardCard from "../../components/DashboardCard.jsx";
 
 const EmployeeDashboard = () => {
@@ -12,7 +13,7 @@ const EmployeeDashboard = () => {
   const fetchTasks = async () => {
     try {
       const response = await axios.get(
-        "https://task-manager-server-1-lei1.onrender.com/api/employeeTasks",
+        `${API_BASE}/api/employeeTasks`,
 
         {
           headers: {
@@ -51,10 +52,10 @@ const EmployeeDashboard = () => {
 
   const recentTasks = myTasks.slice(-5).reverse();
   return (
-    <div className="min-h-screen bg-[#0F172A] p-6">
+    <div className="space-y-6">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white">Employee Dashboard 🎉</h1>
+      <div>
+        <h1 className="text-2xl sm:text-3xl font-bold text-white">Employee Dashboard 🎉</h1>
 
         <h3 className="text-gray-400 mt-2">Welcome back, {user?.name} 👋</h3>
       </div>
@@ -94,9 +95,9 @@ const EmployeeDashboard = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Recent Tasks */}
-        <div className="bg-[#1E293B] rounded-2xl p-6 border border-white/10">
+        <div className="bg-[#1E293B] rounded-2xl p-4 sm:p-6 border border-white/10">
           <h2 className="text-xl font-bold text-white mb-5">Recent Tasks</h2>
 
           <div className="space-y-4">
@@ -142,7 +143,7 @@ const EmployeeDashboard = () => {
         </div>
 
         {/* Productivity */}
-        <div className="bg-[#1E293B] rounded-2xl p-6 border border-white/10">
+        <div className="bg-[#1E293B] rounded-2xl p-4 sm:p-6 border border-white/10">
           <h2 className="text-xl font-bold text-white mb-5">
             Productivity Overview
           </h2>
@@ -166,9 +167,9 @@ const EmployeeDashboard = () => {
           </div>
 
           {/* Task Counts */}
-          <div className="grid grid-cols-3 gap-4 mt-8">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-6 sm:mt-8">
             <div className="text-center">
-              <h1 className="text-3xl font-bold text-gray-300">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-300">
                 {pendingTasks.length}
               </h1>
 
@@ -176,7 +177,7 @@ const EmployeeDashboard = () => {
             </div>
 
             <div className="text-center">
-              <h1 className="text-3xl font-bold text-yellow-400">
+              <h1 className="text-2xl sm:text-3xl font-bold text-yellow-400">
                 {inProgressTasks.length}
               </h1>
 
@@ -184,7 +185,7 @@ const EmployeeDashboard = () => {
             </div>
 
             <div className="text-center">
-              <h1 className="text-3xl font-bold text-green-400">
+              <h1 className="text-2xl sm:text-3xl font-bold text-green-400">
                 {completedTasks.length}
               </h1>
 

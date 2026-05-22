@@ -10,6 +10,7 @@ import {
 
 } from "lucide-react";
 import { toast } from "react-toastify";
+import { API_BASE } from "../../config/api";
 
 const CreateTask = () => {
 
@@ -31,7 +32,7 @@ const CreateTask = () => {
   const fetchEmployees = async () => {
     try {
       const response = await axios.get(
-         "https://task-manager-server-1-lei1.onrender.com/api/my-employees",
+         `${API_BASE}/api/my-employees`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -144,7 +145,7 @@ const CreateTask = () => {
 
       const response = await axios.post(
 
-        "https://task-manager-server-1-lei1.onrender.com/api/tasks",
+        `${API_BASE}/api/tasks`,
 
         {
 
@@ -232,13 +233,13 @@ const CreateTask = () => {
 
   return (
 
-    <div className="max-w-3xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto">
 
-      <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-6 lg:p-8">
+      <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-4 sm:p-6 lg:p-8">
 
         {/* ================= HEADER ================= */}
 
-        <div className="flex items-center gap-3 mb-8">
+        <div className="flex items-center gap-3 flex-wrap mb-6 sm:mb-8">
 
           <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] flex items-center justify-center">
 
@@ -257,7 +258,7 @@ const CreateTask = () => {
 
           <div>
 
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white">
 
               Create Task
 
@@ -513,7 +514,7 @@ const CreateTask = () => {
 
 
           {/* Buttons */}
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
 
             {/* Submit */}
             <button

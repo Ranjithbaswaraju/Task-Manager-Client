@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { API_BASE } from "../../config/api";
+
 const MyTasks = () => {
   const token = localStorage.getItem("token");
   const [tasks, setTasks] = useState([]);
@@ -7,7 +10,7 @@ const MyTasks = () => {
   const fetchTasks = async () => {
     try {
       const response = await axios.get(
-        "https://task-manager-server-1-lei1.onrender.com/api/employeeTasks",
+        `${API_BASE}/api/employeeTasks`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -35,25 +38,28 @@ const MyTasks = () => {
   ) => {
     try {
       await axios.put(
-        `https://task-manager-server-1-lei1.onrender.com/api/employeetasks/${taskId}/status`,
+        `${API_BASE}/api/employeetasks/${taskId}/status`,
         { status },
         {
           headers: {
             Authorization: `Bearer ${token}`,
           }
         }
-      )
+      );
       fetchTasks();
-    }
-    catch (err) {
+      toast.success("Status updated successfully");
+    } catch (err) {
       console.log(err);
+      toast.error(
+        err.response?.data?.message || "Unable to update status"
+      );
     }
-  }
+  };
   return (
-    <div className="min-h-screen bg-[#0F172A] p-6">
+    <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-white">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white">
             My Tasks
           </h1>
           <p className="text-gray-400 mt-2">
@@ -68,7 +74,7 @@ const MyTasks = () => {
               e.target.value
             )
           }
-          className="bg-[#1E293B] border border-white/10 text-white px-5 py-3 rounded-xl outline-none"
+          className="w-full sm:w-auto bg-[#1E293B] border border-white/10 text-white px-5 py-3 rounded-xl outline-none"
         >
           <option value="">
             All Tasks
@@ -91,7 +97,7 @@ const MyTasks = () => {
 
         ? (
 
-          <div className="flex flex-row flex-wrap gap-6">
+          <div className="flex flex-row flex-wrap justify-center gap-6">
 
             {
 
@@ -101,7 +107,7 @@ const MyTasks = () => {
 
                   key={task._id}
 
-                  className="w-[320px] min-h-[320px] bg-[#1E293B] border border-white/10 rounded-2xl p-6 hover:border-[#8B5CF6] transition-all duration-300"
+                  className="w-[300px] shrink-0 grow-0 min-h-[320px] bg-[#1E293B] border border-white/10 rounded-2xl p-5 sm:p-6 hover:border-[#8B5CF6] transition-all duration-300"
 
                 >
 

@@ -8,8 +8,8 @@ import EmployeeLayout from "./pages/EmployeeComponent/EmployeeLayOut";
 
 import OneTask from "./pages/tlComponent/TLtask";
 import { ToastContainer } from "react-toastify";
-import TLLayout from "./pages/tlComponent/TLlayOut";
-import TLDashboard from "./pages/tlComponent/TLdashBoard";
+import TLLayout from "./pages/tlComponent/TLlayout";
+import TLDashboard from "./pages/tlComponent/TLdashboard";
 import MyTeam from "./pages/tlComponent/MyTeam";
 import CreateTask from "./pages/tlComponent/createTask";
 import CreateEmployee from "./pages/tlComponent/createEmployee";

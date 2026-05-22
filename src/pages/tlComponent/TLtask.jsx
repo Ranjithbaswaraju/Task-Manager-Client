@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { ClipboardList, User, Flag } from "lucide-react";
+import { API_BASE } from "../../config/api";
 
 const Tasks = () => {
 
@@ -14,7 +15,7 @@ const Tasks = () => {
   const fetchTasks = async () => {
     try {
       const response = await axios.get(
-        "https://task-manager-server-1-lei1.onrender.com/api/alltasks",
+        `${API_BASE}/api/alltasks`,
 
         {
           headers: {
@@ -49,13 +50,13 @@ const Tasks = () => {
     <div className="space-y-6">
       {/* ================= HEADER ================= */}
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 flex-wrap">
         <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] flex items-center justify-center">
           <ClipboardList className="text-white" size={24} />
         </div>
 
         <div>
-          <h1 className="text-3xl font-bold text-white">My Tasks</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white">My Tasks</h1>
 
           <p className="text-gray-400 mt-1">
             Tasks created by you ({tasks.length})
@@ -66,21 +67,21 @@ const Tasks = () => {
       {/* ================= TASK CARDS ================= */}
 
       {tasks.length > 0 ? (
-        //   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        <div className="flex flex-row flex-wrap gap-6">
+        <div className="flex flex-row flex-wrap justify-center gap-6">
           {tasks.map((task) => (
             <div
               key={task._id}
-              //   className="bg-[#1E293B] border border-white/10 rounded-2xl p-6"
-              className="w-[320px] min-h-[280px] bg-[#1E293B] border border-white/10 rounded-2xl p-6 hover:border-[#8B5CF6] transition-all duration-300"
+              className="w-[300px] shrink-0 grow-0 min-h-[280px] bg-[#1E293B] border border-white/10 rounded-2xl p-5 sm:p-6 hover:border-[#8B5CF6] transition-all duration-300"
             >
               {/* Title */}
-              <div className="flex items-center justify-between mb-5">
-                <h2 className="text-2xl font-bold text-white">{task.title}</h2>
+              <div className="flex items-start justify-between gap-3 mb-5">
+                <h2 className="text-xl sm:text-2xl font-bold text-white break-words min-w-0 flex-1">
+                  {task.title}
+                </h2>
 
                 {/* Priority */}
                 <div
-                  className={`px-3 py-1 rounded-full text-sm font-semibold ${priorityColors[task.priority]}`}
+                  className={`shrink-0 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold ${priorityColors[task.priority]}`}
                 >
                   {task.priority}
                 </div>
