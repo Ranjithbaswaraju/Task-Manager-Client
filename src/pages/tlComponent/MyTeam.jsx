@@ -13,7 +13,7 @@ const token = localStorage.getItem("token");
   const fetchMyTeam = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/my-employees",
+        "https://task-manager-server-1-lei1.onrender.com/api/my-employees",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -43,7 +43,7 @@ const token = localStorage.getItem("token");
 
       const response = await axios.get(
 
-        `http://localhost:3000/api/employee/search/${value}`,
+        `https://task-manager-server-1-lei1.onrender.com/api/employee/search/${value}`,
 
         {
 

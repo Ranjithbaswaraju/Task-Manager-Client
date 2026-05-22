@@ -63,7 +63,7 @@ const Register = () => {
 
       // API CALL
       const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        "https://task-manager-server-1-lei1.onrender.com/api/auth/register",
 
         {
           name: formData.name,

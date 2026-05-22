@@ -31,7 +31,7 @@ const CreateTask = () => {
   const fetchEmployees = async () => {
     try {
       const response = await axios.get(
-         "http://localhost:3000/api/my-employees",
+         "https://task-manager-server-1-lei1.onrender.com/api/my-employees",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -144,7 +144,7 @@ const CreateTask = () => {
 
       const response = await axios.post(
 
-        "http://localhost:3000/api/tasks",
+        "https://task-manager-server-1-lei1.onrender.com/api/tasks",
 
         {
 

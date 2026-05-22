@@ -14,7 +14,7 @@ const Tasks = () => {
   const fetchTasks = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/alltasks",
+        "https://task-manager-server-1-lei1.onrender.com/api/alltasks",
 
         {
           headers: {

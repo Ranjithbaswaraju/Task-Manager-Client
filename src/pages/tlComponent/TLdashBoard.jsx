@@ -19,7 +19,7 @@ const TLDashboard = () => {
   const fetchEmployees = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/employee",
+        "https://task-manager-server-1-lei1.onrender.com/api/employee",
         {
 
           headers: {

@@ -7,7 +7,7 @@ const MyTasks = () => {
   const fetchTasks = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/employeeTasks",
+        "https://task-manager-server-1-lei1.onrender.com/api/employeeTasks",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -35,7 +35,7 @@ const MyTasks = () => {
   ) => {
     try {
       await axios.put(
-        `http://localhost:3000/api/employeetasks/${taskId}/status`,
+        `https://task-manager-server-1-lei1.onrender.com/api/employeetasks/${taskId}/status`,
         { status },
         {
           headers: {
