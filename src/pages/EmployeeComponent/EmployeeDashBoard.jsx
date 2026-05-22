@@ -1,7 +1,8 @@
 import { ClipboardList, Clock, CheckCircle, TrendingUp } from "lucide-react";
-import DashboardCard from "../../components/DashboardCard";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
+import DashboardCard from "../../components/DashboardCard";
 const EmployeeDashboard = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
